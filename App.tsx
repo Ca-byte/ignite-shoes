@@ -13,6 +13,7 @@ import { OneSignal } from 'react-native-onesignal';
 
 
 OneSignal.initialize("4abbfec4-2a63-4790-8b38-9ca86b9a404d")
+OneSignal.Notifications.requestPermission(true)
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
