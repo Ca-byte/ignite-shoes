@@ -1,4 +1,8 @@
-import { Roboto_400Regular, Roboto_700Bold, useFonts } from '@expo-google-fonts/roboto';
+import {
+  Roboto_400Regular,
+  Roboto_700Bold,
+  useFonts
+} from '@expo-google-fonts/roboto';
 import { NativeBaseProvider } from 'native-base';
 import { StatusBar } from 'react-native';
 
@@ -7,9 +11,8 @@ import { Routes } from './src/routes';
 import { Loading } from './src/components/Loading';
 import { THEME } from './src/theme';
 
-import { CartContextProvider } from './src/contexts/CartContext';
-
 import { OneSignal } from 'react-native-onesignal';
+import { CartContextProvider } from './src/contexts/CartContext';
 
 
 OneSignal.initialize("4abbfec4-2a63-4790-8b38-9ca86b9a404d")
