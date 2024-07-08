@@ -1,5 +1,5 @@
 import { Feather } from '@expo/vector-icons';
-import { Heading, HStack, Icon, Text, VStack, Avatar } from "native-base";
+import { Avatar, Heading, HStack, Icon, Text, VStack } from "native-base";
 
 import userPhotoDefault from "../assets/userPhotoDefault.png";
 
@@ -20,7 +20,7 @@ export function HomeHeader() {
         </Text>
 
         <Heading color="gray.100" fontSize="md" fontFamily="heading">
-          Rodrigo Gonçalves
+          Caroline Vieira
         </Heading>
       </VStack>
 
