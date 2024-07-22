@@ -1,12 +1,14 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { useTheme } from 'native-base';
 
-import { useEffect } from 'react';
-import { NotificationWillDisplayEvent, OneSignal } from 'react-native-onesignal';
+import { useEffect, useState } from 'react';
+import { NotificationWillDisplayEvent, OneSignal, OSNotification } from 'react-native-onesignal';
+import { Notification } from '../components/Notification';
 import { AppRoutes } from './app.routes';
 
 export function Routes() {
   const { colors } = useTheme();
+  const [notification, setNotifications] = useState<OSNotification>()
 
   const theme = DefaultTheme;
   theme.colors.background = colors.gray[700];
@@ -15,7 +17,7 @@ export function Routes() {
     const handleNotification = (e: NotificationWillDisplayEvent): void => {
       e.preventDefault()
         const response = e.getNotification()
-        console.log(response)
+        setNotifications(response)
       
     }
     OneSignal.Notifications.addEventListener(
@@ -31,6 +33,10 @@ export function Routes() {
   return (
     <NavigationContainer theme={theme}>
       <AppRoutes />
+      {
+        notification?.title &&
+      <Notification title={notification?.title} onClose={() => setNotifications(undefined)} />
+      }
     </NavigationContainer>
   );
 }
