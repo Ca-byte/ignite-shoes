@@ -11,8 +11,7 @@ import { Routes } from './src/routes';
 import { Loading } from './src/components/Loading';
 import { THEME } from './src/theme';
 
-import { useEffect } from 'react';
-import { NotificationClickEvent, OneSignal } from 'react-native-onesignal';
+import { OneSignal } from 'react-native-onesignal';
 import { CartContextProvider } from './src/contexts/CartContext';
 import { tagUserInfoCreate } from './src/notifications/notificationsTags';
 
@@ -24,25 +23,25 @@ export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
   tagUserInfoCreate()
 
-  useEffect(() => {
-    const handleNotificationClick = (event: NotificationClickEvent): void => {
-      const { actionId } = event.result 
+  // useEffect(() => {
+  //   const handleNotificationClick = (event: NotificationClickEvent): void => {
+  //     const { actionId } = event.result 
 
-      switch(actionId){
-        case "1":
-          console.log("See all")
-          break
-        case "2":
-          console.log("See request")
-          break
-        default:
-          console.log("No one option above it was selected")
-          break
-      }
-    }
+  //     switch(actionId){
+  //       case "1":
+  //         console.log("See all")
+  //         break
+  //       case "2":
+  //         console.log("See request")
+  //         break
+  //       default:
+  //         console.log("No one option above it was selected")
+  //         break
+  //     }
+  //   }
     
-    OneSignal.Notifications.addEventListener("click", handleNotificationClick)
-  },[])
+  //   OneSignal.Notifications.addEventListener("click", handleNotificationClick)
+  // },[])
 
   return (
     <NativeBaseProvider theme={THEME}>
